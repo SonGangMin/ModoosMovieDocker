@@ -56,7 +56,7 @@ const MeetWriteActionButtonsContainer = () => {
   useEffect(() => {
     if (meet) {
       const meetNum = meet.meetNum;
-      console.log("방금만든 meetNum입니다", meetNum);
+      console.log("방금만든 meetNum입니다", user, meetNum);
       dispatch(join({ user, meetNum }));
       navigate("/meet");
     }

@@ -13,6 +13,7 @@ export const Meetlist = ({ tag, region, page, sort }) => {
   });
 };
 export const joinMeet = ({ user, meetNum }) => {
+  console.log("joinMeet API", user, meetNum);
   return client.post("/meet/join", { user, meetNum });
 };
 export const withdrawMeet = ({ user, meetNum }) => {

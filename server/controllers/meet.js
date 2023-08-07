@@ -47,7 +47,9 @@ exports.meetRead = async (req, res, next) => {
   const userStrings = meetuser;
   console.log("meetRead의 userStrings", userStrings);
   // console.log("meetuser 목록", userStrings);
-  meet.views += 1;
+  if (meet) {
+    meet.views += 1;
+  }
   await meet.save();
   if (!meet) {
     res.status(404).json({ message: "포스트가 존재하지않습니다" });
@@ -220,7 +222,7 @@ exports.meetDelete = async (req, res, next) => {
 
 exports.meetJoin = async (req, res) => {
   const { user, meetNum } = req.body;
-  // console.log("dddddddddddddddd", user);
+  console.log("dddddddddddddddd", user, meetNum);
   try {
     const newJoin = await meetusers.create({
       user_Num: user.num,
