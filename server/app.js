@@ -34,7 +34,7 @@ app.use(cookieParser());
 
 // const connection = mysql.createConnection({
 //   host: "192.168.10.104",
-//   user: "CarCarO2",
+//   user: "root",
 //   password: "edurootroot",
 //   database: "ModoosMovie",
 // });

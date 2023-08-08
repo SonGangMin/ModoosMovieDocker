@@ -411,7 +411,7 @@ const MovieDetail = ({
   like,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   if (moviedetail.length === 0) {
     console.log("아앙아아아아아");
     return;
@@ -452,20 +452,20 @@ const MovieDetail = ({
     // const likedComment = like && like.find((item) => item.mc_num === commentNum);
     // const likedUser = like && like?.filter((m) => m.id === userId);
     const liked = like && like.filter((m) => m.id === userId);
-  
+
     // console.log("likedComment", likedComment);
     // console.log("likedUser", likedUser);
     console.log("liked", liked);
-  
-    const hasLiked = liked.find((f) => f.mc_num === commentNum);
+
+    const hasLiked = liked && liked.find((f) => f.mc_num === commentNum);
     console.log("hasLiked", hasLiked);
     console.log("commentnum", commentNum);
-  //   const likedComments = like && like.filter((item) => item.mc_num === commentNum);
-  // const likedUser = like && like?.filter((m) => m.id === userId);
+    //   const likedComments = like && like.filter((item) => item.mc_num === commentNum);
+    // const likedUser = like && like?.filter((m) => m.id === userId);
 
-  // 현재 사용자가 해당 댓글에 좋아요를 눌렀는지 확인합니다.
-  // const hasLike = hasLiked.length > 0;
-  
+    // 현재 사용자가 해당 댓글에 좋아요를 눌렀는지 확인합니다.
+    // const hasLike = hasLiked.length > 0;
+
     if (hasLiked) {
       return (
         <button
@@ -488,7 +488,6 @@ const MovieDetail = ({
       );
     }
   };
-  
 
   return (
     <DetailContainer>
@@ -692,7 +691,7 @@ const MovieDetail = ({
                         </span>
                         <ReviewTopInfo>
                           <span>{comment.id}</span>
-                          <span>{changeDate(comment.createdAt)}</span> 
+                          <span>{changeDate(comment.createdAt)}</span>
                           {renderLikeButton(comment.mc_num, comment.likes)}
                         </ReviewTopInfo>
                         <div>{comment.content}</div>
@@ -708,12 +707,10 @@ const MovieDetail = ({
                               onRate={handleRate}
                             />
                           )}
-                          
                         </div>
                       </li>
                     ))}
                 </ReviewComent>
-                
               </div>
             </Comment>
           </Reviews>
